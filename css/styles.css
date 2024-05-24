@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+img {
+  display: block;
+  max-height: 200px;
+  width: 360px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+.gallery {
+  padding: 24px 24px;
+  width: 1176px;
+  height: 696px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 24px;
+}
+
+.cursor {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 37px;
+  background-image: url(../img/Vector.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: width 100ms ease-in-out, height 100ms ease-in-out;
+  pointer-events: none;
+}
+
+.cursor.active {
+  width: 27px;
+  height: 27px;
+}
