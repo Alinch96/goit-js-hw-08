@@ -4,6 +4,7 @@ import { images } from './images-data.js';
 
 const ulEl = document.querySelector('ul');
 ///////
+///////
 
 const createGalleryTemplate = array =>
   array.reduce(
