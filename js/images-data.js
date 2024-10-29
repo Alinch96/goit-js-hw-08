@@ -1,4 +1,5 @@
 'use strict';
+//////////
 export const images = [
   {
     preview:

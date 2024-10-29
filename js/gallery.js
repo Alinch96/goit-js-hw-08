@@ -20,27 +20,47 @@ const createGalleryTemplate = (array) =>
         </li>`
         , '');
     
-ulEl.innerHTML = createGalleryTemplate(images);
-
- ulEl.addEventListener('click', (e) => {
     
-     e.preventDefault();
-     
-     if (e.target.nodeName !== 'IMG') return;
-     
-     const instance = basicLightbox.create(
+    ulEl.innerHTML = createGalleryTemplate(images);
+
+    
+    ulEl.addEventListener('click', (e) => {
+    
+        e.preventDefault();
         
-        `<img src="${e.target.dataset.source}" alt="${e.target.alt}">`
-         
-     );
+        if (e.target.nodeName !== 'IMG') return;
+        
+        const instance = basicLightbox.create(
+            
+            `<img src="${e.target.dataset.source}" alt="${e.target.alt}">`
+            ,
+            {
+                className: 'modal',
+
+                onShow: () => {
+                    document.addEventListener('keydown', onEscapePress);
+                },
+
+                onClose: () => {
+                    document.removeEventListener('keydown', onEscapePress);
+                },
+            });
+            
      
-     instance.show();
+        instance.show();
+        
+        function onEscapePress(e) {
+        
+            if (e.code === 'Escape') instance.close();
+            console.log('Escape');
+    
+        }
      
-    document.addEventListener('keydown', (e) => {
-         if (e.code === 'Escape') instance.close();
     });
-     
-});
+
+  
+    
+  
  
 // Кастомний курсор
 
